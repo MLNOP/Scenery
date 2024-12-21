@@ -1,4 +1,4 @@
-import '../scss/app.scss' // nécéssaire pour le Hot Module Reload
+import '../styles/app.scss' // nécéssaire pour le Hot Module Reload
 
 import { Observer } from 'astronomy-engine'
 
@@ -49,5 +49,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
       }
     })
+  })
+
+  // Listener de messages en cas d'appel en iframe
+  window.addEventListener('message', (event) => {
+    console.log(event)
+    if (event.origin.includes('.mlnop.fr') || event.origin.includes('local')) {
+      // Envoie le css au document parent
+
+      window.parent.postMessage(document.documentElement.style.cssText, '*')
+    }
   })
 })

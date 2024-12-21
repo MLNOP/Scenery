@@ -70,7 +70,7 @@ export const celestialDraw = async (context, layerWidth, layerHeight, observer, 
     bodyCanvas.height = config.size * 2
     const bodyContext = bodyCanvas.getContext('2d')
 
-    await getImg(`./assets/img/planets/${config.name.toLowerCase()}.png`)
+    await getImg(`./src/img/planets/${config.name.toLowerCase()}.png`)
       .then((img) => {
         const imgWidth = img.width
         const imgHeight = img.height
